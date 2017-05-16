@@ -3,6 +3,7 @@ package com.fastholf.templine
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import android.text.method.ScrollingMovementMethod
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        rawResponseText.movementMethod = ScrollingMovementMethod.getInstance()
     }
 
     override fun onStart() {
