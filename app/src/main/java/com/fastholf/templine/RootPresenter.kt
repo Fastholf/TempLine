@@ -8,7 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 class RootPresenter(val repository: Repository, val view: View) {
 
     fun onStart() {
-        repository.getResponse().observeOn(AndroidSchedulers.mainThread()).subscribe { view.showResponse(it) }
+        repository.getResponse().observeOn(AndroidSchedulers.mainThread()).subscribe { view.showResponse(it.toString()) }
     }
 
     interface View {
