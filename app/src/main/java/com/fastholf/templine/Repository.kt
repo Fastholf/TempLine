@@ -11,9 +11,10 @@ class Repository {
     val ROOT_URL = "https://api.darksky.net/forecast"
     val SECRET_KEY = ""
     val LOCATION = "37.8267,-122.4233"
+    val PARAMS = "units=si"
 
     fun getResponse(): Observable<String> {
-        return Observable.create<String> { e -> e.onNext((URL("$ROOT_URL/$SECRET_KEY/$LOCATION").readText())) }
+        return Observable.create<String> { e -> e.onNext((URL("$ROOT_URL/$SECRET_KEY/$LOCATION?$PARAMS").readText())) }
                 .subscribeOn(Schedulers.io())
     }
 }
