@@ -2,19 +2,21 @@ package com.fastholf.templine
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
-import android.text.method.ScrollingMovementMethod
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+
 
 class MainActivity : AppCompatActivity() {
 
     private val presenter: RootPresenter by lazy { RootPresenter(RootController.repository, RootPresenterView()) }
 
-    private val rawResponseText: TextView by lazy { findViewById(R.id.raw_response) as TextView }
+    private val lineChart: LineChart by lazy { findViewById(R.id.chart) as LineChart }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        rawResponseText.movementMethod = ScrollingMovementMethod.getInstance()
     }
 
     override fun onStart() {
@@ -24,8 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     inner class RootPresenterView : RootPresenter.View {
 
-        override fun showResponse(response: String) {
-            rawResponseText.text = response
+        override fun showResponse(response: List<Pair<Long, Double>>) {
+            lineChart.data = LineData(LineDataSet(response.map { Entry(it.first.toFloat(), it.second.toFloat()) }, ""))
+            lineChart.invalidate()
         }
     }
 }
