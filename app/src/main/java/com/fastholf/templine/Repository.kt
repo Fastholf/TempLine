@@ -12,7 +12,7 @@ import java.net.URL
 class Repository {
     val ROOT_URL = "https://api.darksky.net/forecast"
     val SECRET_KEY = ""
-    val LOCATION = "37.8267,-122.4233"
+    val LOCATION = "56.5010,84.9924"
     val PARAMS = "units=si"
 
     fun getResponse(): Observable<Forecast> {
