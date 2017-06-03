@@ -10,7 +10,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 class ForecastJsonParser {
     fun parse(jsonString: String): Forecast {
         val jsonForecast = jacksonObjectMapper().readValue<JsonForecast>(jsonString)
-        return Forecast(jsonForecast.hourly.data.map { Pair(secondsToHours(it.time), it.temperature) })
+        return Forecast(jsonForecast.hourly.data.map { Pair(it.time, it.temperature) })
     }
 }
 
@@ -22,7 +22,3 @@ data class JsonHourForecast(val time: Long, val temperature: Double)
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class JsonHourly(val data: List<JsonHourForecast>)
-
-fun secondsToHours(seconds: Long): Long {
-    return (seconds - System.currentTimeMillis() / 1000) / 60 / 60
-}

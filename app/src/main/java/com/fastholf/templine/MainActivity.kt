@@ -6,6 +6,7 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     inner class RootPresenterView : RootPresenter.View {
 
-        override fun showResponse(response: List<Pair<Long, Double>>) {
-            lineChart.data = LineData(LineDataSet(response.map { Entry(it.first.toFloat(), it.second.toFloat()) }, ""))
+        override fun showForecast(forecast: List<Pair<Int, Double>>, xAxisValueFormatter: IAxisValueFormatter) {
+            lineChart.data = LineData(LineDataSet(forecast.map { Entry(it.first.toFloat(), it.second.toFloat()) }, ""))
+            lineChart.xAxis.valueFormatter = xAxisValueFormatter
             lineChart.invalidate()
         }
     }
