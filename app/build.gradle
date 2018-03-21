@@ -4,13 +4,11 @@ apply plugin: 'kotlin-android'
 def MAJOR_VERSION = 0
 def MINOR_VERSION = 1
 def PATCH_VERSION = 0
-def BUILD_NUMBER = 1
 def VERSION_CODE =
         MAJOR_VERSION * 100 * 100 * 100
         + MINOR_VERSION * 100 * 100
-        + PATCH_VERSION * 100
-        + BUILD_NUMBER
-def VERSION_NAME = "${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}.${BUILD_NUMBER}"
+        + PATCH_VERSION
+def VERSION_NAME = "${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}"
 
 android {
     compileSdkVersion 25
