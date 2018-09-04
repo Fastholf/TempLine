@@ -1,8 +1,9 @@
-package com.fastholf.templine.forecast
+package com.fastholf.templine.data
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.fastholf.templine.domain.Forecast
 
 /**
  * Created by fastholf on 22/05/2017.

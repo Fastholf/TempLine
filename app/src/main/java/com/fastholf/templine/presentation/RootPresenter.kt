@@ -1,5 +1,6 @@
-package com.fastholf.templine
+package com.fastholf.templine.presentation
 
+import com.fastholf.templine.data.Repository
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import io.reactivex.android.schedulers.AndroidSchedulers

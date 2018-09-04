@@ -1,4 +1,4 @@
-package com.fastholf.templine
+package com.fastholf.templine.presentation
 
 import android.app.Application
 import net.danlew.android.joda.JodaTimeAndroid

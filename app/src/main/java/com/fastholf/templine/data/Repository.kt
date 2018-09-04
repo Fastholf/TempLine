@@ -1,7 +1,6 @@
-package com.fastholf.templine
+package com.fastholf.templine.data
 
-import com.fastholf.templine.forecast.Forecast
-import com.fastholf.templine.forecast.ForecastJsonParser
+import com.fastholf.templine.domain.Forecast
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import java.net.URL

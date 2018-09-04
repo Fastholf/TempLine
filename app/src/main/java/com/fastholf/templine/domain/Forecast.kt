@@ -1,4 +1,4 @@
-package com.fastholf.templine.forecast
+package com.fastholf.templine.domain
 
 /**
  * Created by fastholf on 21/05/2017.
