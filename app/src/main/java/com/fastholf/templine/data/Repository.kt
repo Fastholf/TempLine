@@ -9,15 +9,15 @@ import java.net.URL
  * Created by fastholf on 15/05/2017.
  */
 class Repository {
-    val ROOT_URL = "https://api.darksky.net/forecast"
-    val SECRET_KEY = ""
-    val LOCATION = "56.5010,84.9924"
-    val PARAMS = "units=si"
+	val ROOT_URL = "https://api.darksky.net/forecast"
+	val SECRET_KEY = ""
+	val LOCATION = "56.5010,84.9924"
+	val PARAMS = "units=si"
 
-    fun getResponse(): Observable<Forecast> {
-        return Observable.create<Forecast> { e ->
-            val response = URL("$ROOT_URL/$SECRET_KEY/$LOCATION?$PARAMS").readText()
-            e.onNext(ForecastJsonParser().parse(response))
-        }.subscribeOn(Schedulers.io())
-    }
+	fun getResponse(): Observable<Forecast> {
+		return Observable.create<Forecast> { e ->
+			val response = URL("$ROOT_URL/$SECRET_KEY/$LOCATION?$PARAMS").readText()
+			e.onNext(ForecastJsonParser().parse(response))
+		}.subscribeOn(Schedulers.io())
+	}
 }

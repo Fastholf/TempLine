@@ -9,10 +9,10 @@ import com.fastholf.templine.domain.Forecast
  * Created by fastholf on 22/05/2017.
  */
 class ForecastJsonParser {
-    fun parse(jsonString: String): Forecast {
-        val jsonForecast = jacksonObjectMapper().readValue<JsonForecast>(jsonString)
-        return Forecast(jsonForecast.hourly.data.map { Pair(it.time, it.temperature) })
-    }
+	fun parse(jsonString: String): Forecast {
+		val jsonForecast = jacksonObjectMapper().readValue<JsonForecast>(jsonString)
+		return Forecast(jsonForecast.hourly.data.map { Pair(it.time, it.temperature) })
+	}
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
