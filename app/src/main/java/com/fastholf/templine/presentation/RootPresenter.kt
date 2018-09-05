@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 class RootPresenter(private val rootController: RootController, val view: View) {
 
 	fun onStart() {
-		rootController.getResponse()
+		rootController.getForecast()
 			.observeOn(AndroidSchedulers.mainThread())
 			.subscribe {
 				val forecast = it.hours.mapIndexed { index, pair -> Pair(index, pair.second) }
