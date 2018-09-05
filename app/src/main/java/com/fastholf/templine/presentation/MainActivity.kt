@@ -3,7 +3,6 @@ package com.fastholf.templine.presentation
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.fastholf.templine.R
-import com.fastholf.templine.domain.RootController
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -14,7 +13,7 @@ class MainActivity :AppCompatActivity() {
 
 	private val presenter: RootPresenter by lazy {
 		RootPresenter(
-			RootController.repository,
+			AppInitializer.rootController,
 			RootPresenterView()
 		)
 	}

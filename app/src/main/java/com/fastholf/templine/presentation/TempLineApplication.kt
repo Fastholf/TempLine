@@ -1,7 +1,6 @@
 package com.fastholf.templine.presentation
 
 import android.app.Application
-import net.danlew.android.joda.JodaTimeAndroid
 
 /**
  * Created by fastholf on 03/06/2017.
@@ -9,6 +8,6 @@ import net.danlew.android.joda.JodaTimeAndroid
 class TempLineApplication :Application() {
 	override fun onCreate() {
 		super.onCreate()
-		JodaTimeAndroid.init(this)
+		AppInitializer.init(this)
 	}
 }

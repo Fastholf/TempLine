@@ -1,6 +1,6 @@
 package com.fastholf.templine.presentation
 
-import com.fastholf.templine.data.Repository
+import com.fastholf.templine.domain.RootController
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by fastholf on 15/05/2017.
  */
-class RootPresenter(val repository: Repository, val view: View) {
+class RootPresenter(private val rootController: RootController, val view: View) {
 
 	fun onStart() {
-		repository.getResponse()
+		rootController.getResponse()
 			.observeOn(AndroidSchedulers.mainThread())
 			.subscribe {
 				val forecast = it.hours.mapIndexed { index, pair -> Pair(index, pair.second) }
