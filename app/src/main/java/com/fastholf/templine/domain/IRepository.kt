@@ -4,4 +4,5 @@ import io.reactivex.Observable
 
 interface IRepository {
 	fun getForecast(): Observable<Forecast>
+	fun isLoading(): Observable<Boolean>
 }

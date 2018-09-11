@@ -20,6 +20,11 @@ class RootPresenter(private val rootController: RootController, val view: View) 
 				val xLabels = it.hours.map { (first) -> DateTime(TimeUnit.SECONDS.toMillis(first)).hourOfDay }
 				view.showForecast(forecast, XAxisValueFormatter(xLabels))
 			}
+		rootController.isLoadingForecast()
+			.observeOn(AndroidSchedulers.mainThread())
+			.subscribe {
+				view.showLoading(it)
+			}
 	}
 
 	private class XAxisValueFormatter(private val xLabels: List<Int>) :IAxisValueFormatter {
@@ -30,5 +35,6 @@ class RootPresenter(private val rootController: RootController, val view: View) 
 
 	interface View {
 		fun showForecast(forecast: List<Pair<Int, Double>>, xAxisValueFormatter: IAxisValueFormatter)
+		fun showLoading(loading: Boolean)
 	}
 }

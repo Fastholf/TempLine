@@ -2,6 +2,7 @@ package com.fastholf.templine.presentation
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.fastholf.templine.R
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
@@ -19,6 +20,7 @@ class MainActivity :AppCompatActivity() {
 	}
 
 	private val lineChart: LineChart by lazy { findViewById(R.id.chart) as LineChart }
+	private val process: View by lazy { findViewById<View>(R.id.progress) }
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -31,6 +33,9 @@ class MainActivity :AppCompatActivity() {
 	}
 
 	inner class RootPresenterView :RootPresenter.View {
+		override fun showLoading(loading: Boolean) {
+			process.visibility = if (loading) View.VISIBLE else View.GONE
+		}
 
 		override fun showForecast(forecast: List<Pair<Int, Double>>, xAxisValueFormatter: IAxisValueFormatter) {
 			lineChart.data = LineData(LineDataSet(forecast.map { Entry(it.first.toFloat(), it.second.toFloat()) }, ""))
