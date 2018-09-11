@@ -7,9 +7,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import org.joda.time.DateTime
 import java.util.concurrent.TimeUnit
 
-/**
- * Created by fastholf on 15/05/2017.
- */
 class RootPresenter(private val rootController: RootController, val view: View) {
 
 	fun onStart() {

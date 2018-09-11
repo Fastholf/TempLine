@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 
-/**
- * Created by fastholf on 22/05/2017.
- */
 class ForecastJsonParser {
 	fun parse(jsonString: String): ForecastResponse {
 		val jsonForecast = jacksonObjectMapper().readValue<JsonForecast>(jsonString)

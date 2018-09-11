@@ -19,7 +19,7 @@ class MainActivity :AppCompatActivity() {
 		)
 	}
 
-	private val lineChart: LineChart by lazy { findViewById(R.id.chart) as LineChart }
+	private val lineChart: LineChart by lazy { findViewById<LineChart>(R.id.chart) }
 	private val process: View by lazy { findViewById<View>(R.id.progress) }
 
 	override fun onCreate(savedInstanceState: Bundle?) {

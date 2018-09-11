@@ -7,15 +7,12 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 import java.net.URL
 
-/**
- * Created by fastholf on 15/05/2017.
- */
 class Repository(private val cache: Cache) :IRepository {
 
-	val ROOT_URL = "https://api.darksky.net/forecast"
-	val SECRET_KEY = ""
-	val LOCATION = "56.5010,84.9924"
-	val PARAMS = "units=si"
+	private val rootUrl = "https://api.darksky.net/forecast"
+	private val secretKey = ""
+	private val location = "56.5010,84.9924"
+	private val params = "units=si"
 
 	private val isLoading: BehaviorSubject<Boolean> = BehaviorSubject.createDefault(false)
 
@@ -27,7 +24,7 @@ class Repository(private val cache: Cache) :IRepository {
 				}
 				if (!cache.isCached() || cache.isExpired()) {
 					isLoading.onNext(true)
-					val jsonResponse = URL("$ROOT_URL/$SECRET_KEY/$LOCATION?$PARAMS").readText()
+					val jsonResponse = URL("$rootUrl/$secretKey/$location?$params").readText()
 					cache.cacheForecastResponse(jsonResponse)
 					val forecast = ForecastJsonParser().parse(jsonResponse)
 					isLoading.onNext(false)
